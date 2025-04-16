@@ -22,7 +22,7 @@ import com.example.guest.data.Guest
 @Composable
 fun GuestDialogForm(
     isOpen: Boolean,
-    onDismiss: () -> Unit, //callback
+    onDismiss: () -> Unit,
     onSave: (Guest) -> Unit,
     guest: Guest? = null
 ) {
@@ -30,7 +30,7 @@ fun GuestDialogForm(
         var name by remember { mutableStateOf(guest?.name ?: "") }
         var email by remember { mutableStateOf(guest?.email ?: "") }
         var phone by remember { mutableStateOf(guest?.phone ?: "") }
-        var confirmed by remember { mutableStateOf(guest?.confirmed == 1) } // Inicializa com o valor do convidado, se disponível
+        var confirmed by remember { mutableStateOf(guest?.confirmed == 1) }
 
         AlertDialog(
             title = {
@@ -44,7 +44,7 @@ fun GuestDialogForm(
                             name = name,
                             email = email,
                             phone = phone,
-                            confirmed = if (confirmed) 1 else 0, // Convert to 1 if confirmed, else 0
+                            confirmed = if (confirmed) 1 else 0,
                             id = guest?.id ?: 0
                         )
                         name = ""

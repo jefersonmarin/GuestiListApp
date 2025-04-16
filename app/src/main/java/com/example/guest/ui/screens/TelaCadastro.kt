@@ -59,30 +59,28 @@ fun TelaCadastro(
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .heightIn(min = 200.dp) // Aumenta a altura do Box para acomodar a imagem e o texto
-                             // Ajuste de padding superior
+                            .heightIn(min = 200.dp)
                     ) {
-                        // Imagem circular
                         Image(
                             painter = painterResource(id = R.drawable.icone_guestapp),
                             contentScale = ContentScale.Crop,
                             contentDescription = "icone_guestapp",
                             modifier = Modifier
                                 .padding(top = 62.dp)
-                                .size(80.dp) // Tamanho da imagem
+                                .size(80.dp)
                                 .clip(CircleShape)
-                                .align(Alignment.TopCenter) // Coloca a imagem no topo do Box
+                                .align(Alignment.TopCenter)
                         )
-                        // Texto "Cadastre-se" abaixo da imagem
+
                         Column(
                             horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally,
                             modifier = Modifier
-                                .align(Alignment.BottomCenter) // Alinha o texto abaixo da imagem
-                                .padding(bottom = 16.dp) // Distância entre a imagem e o texto
+                                .align(Alignment.BottomCenter)
+                                .padding(bottom = 16.dp)
                         ) {
                             Text(
                                 text = "Cadastre-se",
-                                color = androidx.compose.ui.graphics.Color.Black // Cor do texto ajustada para preto
+                                color = androidx.compose.ui.graphics.Color.Black
                             )
                         }
                     }
@@ -94,7 +92,7 @@ fun TelaCadastro(
             modifier = Modifier
                 .padding(padding)
                 .padding(start = 16.dp, end = 16.dp)
-                .padding(top = 32.dp) // Padding no topo do formulário
+                .padding(top = 32.dp)
         ) {
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),

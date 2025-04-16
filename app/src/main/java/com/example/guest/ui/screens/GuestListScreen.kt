@@ -53,8 +53,8 @@ fun GuestListScreen(navController: NavController) {
     var showDialog by remember { mutableStateOf(false) }
 
     val onConfirmChange: (Guest, Boolean) -> Unit = { guest, isChecked ->
-        val updatedGuest = guest.copy(confirmed = if (isChecked) 1 else 0) // Atualiza a confirmação para 0 ou 1
-        viewmodel.updateGuest(updatedGuest) // Atualiza o convidado no banco de dados
+        val updatedGuest = guest.copy(confirmed = if (isChecked) 1 else 0)
+        viewmodel.updateGuest(updatedGuest)
     }
 
     Scaffold(
@@ -122,10 +122,10 @@ fun GuestListScreen(navController: NavController) {
 
 @Composable
 fun GuestCard(
-    guest: Guest,  // Corrigido: o parâmetro guest estava com erro de sintaxe
+    guest: Guest,
     onDelete: (Guest) -> Unit,
     onEdit: (Guest) -> Unit,
-    onConfirmChange: (Guest, Boolean) -> Unit // Corrigido: adicionar vírgula e ajustar a sintaxe
+    onConfirmChange: (Guest, Boolean) -> Unit
 ) {
     Card(
         modifier = Modifier
@@ -140,16 +140,16 @@ fun GuestCard(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Row(
-                verticalAlignment = Alignment.CenterVertically // Alinha o checkbox com o texto
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Checkbox(
-                    checked = guest.confirmed == 1, // Verifica se o convidado está confirmado (0 ou 1)
+                    checked = guest.confirmed == 1,
                     onCheckedChange = {
-                        // Atualizar a variável confirmed com o novo valor (0 ou 1)
+
                         onConfirmChange(guest, it)
                     }
                 )
-                Spacer(modifier = Modifier.width(8.dp)) // Espaço entre o checkbox e o texto
+                Spacer(modifier = Modifier.width(8.dp))
                 Column {
                     Text(guest.name, style = MaterialTheme.typography.titleMedium)
                     Text(guest.email, style = MaterialTheme.typography.bodyMedium)
